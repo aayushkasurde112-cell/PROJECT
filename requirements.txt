@@ -1,8 +1,9 @@
+
 langgraph
 langchain-core
-langchain-openai
+langchain-google-genai
+langchain-groq
 langchain-ollama
-langchain-anthropic
 python-dotenv
 sentence-transformers
 numpy

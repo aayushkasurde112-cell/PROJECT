@@ -1,7 +1,6 @@
 """
 System prompt for the Planner agent.
 
-RESPONSIBILITY: Aayush + Rehan
 """
 
 PLANNER_SYSTEM_PROMPT = """You are the PLANNER agent, the first stage in a sequential

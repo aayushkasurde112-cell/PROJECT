@@ -1,7 +1,6 @@
 """
 System prompt for the Formatter agent.
 
-RESPONSIBILITY: Aayush + Rehan
 """
 
 FORMATTER_SYSTEM_PROMPT = """You are the FORMATTER agent, the fourth and final stage in a

@@ -146,7 +146,7 @@ of the Debugger integration design, not something this module assumes.
 python -m venv venv
 source venv/bin/activate   # on Windows: venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env       # then fill in your real OPENAI_API_KEY
+cp .env.example .env       # then fill in your real GOOGLE_API_KEY
 ```
 
 The first time `calculate_loop_score()` actually runs (not just on empty input),
@@ -157,9 +157,9 @@ to `huggingface.co`. After the first download it's cached locally.
 ## Configuring `.env`
 
 ```
-LLM_PROVIDER=openai
-LLM_MODEL=gpt-4o-mini
-OPENAI_API_KEY=your-real-key-here
+LLM_PROVIDER=gemini
+LLM_MODEL=gemini-2.5-flash
+GOOGLE_API_KEY=your-real-key-here
 OLLAMA_MODEL=llama3
 ```
 
@@ -168,7 +168,7 @@ this structure with placeholder values only — never a real key. `main.py` call
 `load_dotenv()` before importing `graph` (and therefore before any node can call
 `get_llm()`), so environment variables are guaranteed to be loaded first.
 
-Note: `utils/llm.py` already wires OpenAI as the primary provider with an
+Note: `utils/llm.py` wires Gemini as the primary provider with an
 automatic Ollama fallback on API/network errors — that fallback logic belongs to
 Ved's circuit-breaker work and was left untouched here.
 
@@ -198,7 +198,7 @@ Covers:
   sends exactly one `SystemMessage` + one `HumanMessage`, and returns only the
   state field it owns.
 
-No test in this suite requires a live OpenAI API key.
+No test in this suite requires a live Gemini API key.
 
 ## Project structure
 
@@ -218,7 +218,7 @@ project/
 │   ├── synthesizer_prompt.py
 │   └── formatter_prompt.py
 ├── utils/
-│   ├── llm.py                 # Central LLM initialization (OpenAI primary, Ollama fallback)
+│   ├── llm.py                 # Central LLM initialization (Gemini primary, Ollama fallback)
 │   └── loop_detector.py       # Cosine-similarity loop_score calculation (standalone)
 ├── tests/
 │   ├── test_loop_detector.py

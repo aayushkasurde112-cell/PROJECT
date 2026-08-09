@@ -1,7 +1,6 @@
 """
 System prompt for the Synthesizer agent.
 
-RESPONSIBILITY: Aayush + Rehan
 """
 
 SYNTHESIZER_SYSTEM_PROMPT = """You are the SYNTHESIZER agent, the third stage in a sequential
