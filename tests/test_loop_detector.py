@@ -1,25 +1,3 @@
-"""
-Tests for utils/loop_detector.py.
-
-These tests are split into two groups:
-
-1. Pure-math / empty-input tests (test_cosine_similarity_* and
-   test_calculate_loop_score_*_empty*) — these never load the
-   sentence-transformers model, so they run fully offline and fast.
-
-2. Mocked-embedding tests (test_calculate_loop_score_*_mocked) — these
-   patch out the embedding model with deterministic fake vectors, so
-   the "nearly identical -> high similarity" and "different -> low
-   similarity" behavior specified in the project requirements is
-   verified without depending on network access or a downloaded model.
-
-3. One real-model integration test at the bottom, which exercises the
-   actual sentence-transformers model end to end. It is automatically
-   skipped (not failed) if the model can't be loaded — e.g. no network
-   access to download it — since that's an environment constraint, not
-   a code bug. Run it explicitly with network access to confirm real
-   embedding behavior.
-"""
 
 import numpy as np
 import pytest
